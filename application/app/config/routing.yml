@@ -1,3 +1,15 @@
+emovie_rating:
+    resource: "@EmovieRatingBundle/Resources/config/routing.xml"
+    prefix:   /
+
+emovie_user:
+    resource: "@EmovieUserBundle/Resources/config/routing.xml"
+    prefix:   /
+
+emovie_movie:
+    resource: "@EmovieMovieBundle/Resources/config/routing.xml"
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 # ****** WARNING ******
 # This route should be enabled with caution as it can open a security vulnerability
