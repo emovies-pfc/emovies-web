@@ -18,7 +18,9 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "kriswallsmith/assetic": "1.1.*@dev"
+        "kriswallsmith/assetic": "1.1.*@dev",
+        "friendsofsymfony/user-bundle": "*",
+        "doctrine/doctrine-migrations-bundle": "dev-master@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -34,11 +36,12 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
+    "minimum-stability": "dev",
     "config": {
         "vendor-dir": "application/vendor"
-    }
+    },
     "extra": {
         "symfony-app-dir": "application/app",
-        "symfony-web-dir": "approot/web"
+        "symfony-web-dir": "approot"
     }
 }
