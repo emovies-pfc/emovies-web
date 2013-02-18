@@ -60,6 +60,10 @@ class ImportMovielensDataCommand extends ContainerAwareCommand
         /** @var $importer \Emovie\MovieLensBundle\Importer\Importer */
         $importer = $this->getContainer()->get('emovie_movie_lens.importer.' . $importerType);
 
+        $importer->setCallback(function($position) use ($output, $plural) {
+            $output->writeln("<info>Imported {$position} {$plural}.");
+        }, 5000);
+
         $output->writeln("<info>Starting {$plural} import...</info>");
         $importer->importFromFile($file);
         $output->writeln("<info>Finished importing {$plural}.</info>");

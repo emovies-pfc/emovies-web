@@ -10,6 +10,8 @@ use Emovie\MovieLensBundle\File\MovieLensFile;
 class MovieImporter implements Importer
 {
     private $connection;
+    private $callback;
+    private $period;
 
     public function __construct(Connection $connection)
     {
@@ -21,10 +23,23 @@ class MovieImporter implements Importer
         $insertMovieQuery =
             $this->connection->prepare('INSERT IGNORE INTO movie(movielensId, name) VALUES (:movielens_id, :name)');
 
+        $position = 0;
+
         while ($data = $file->getNextRecord()) {
             list($movielensId, $name, $tags) = $data;
 
             $insertMovieQuery->execute(array('movielens_id' => $movielensId, 'name' => $name));
+            ++ $position;
+
+            if ($this->callback && $position % $this->period === 0) {
+                call_user_func($this->callback, $position);
+            }
         }
+    }
+
+    public function setCallback(callable $callback, $period)
+    {
+        $this->callback = $callback;
+        $this->period = $period;
     }
 }

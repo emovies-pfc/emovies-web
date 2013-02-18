@@ -14,4 +14,12 @@ interface Importer
      * @param \Emovie\MovieLensBundle\File\MovieLensFile $file
      */
     public function importFromFile(MovieLensFile $file);
+
+    /**
+     * Sets a callback to be called each $period register insertions.
+     *
+     * @param $callback
+     * @param $period
+     */
+    public function setCallback(callable $callback, $period);
 }

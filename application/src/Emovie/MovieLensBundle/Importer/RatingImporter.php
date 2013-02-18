@@ -11,11 +11,13 @@ use Doctrine\ORM\Query;
  */
 class RatingImporter implements Importer
 {
-    const MAX_BATCH_SIZE = 100000;
+    const MAX_BATCH_SIZE = 20000;
 
     protected $manager;
     protected $connection;
     protected $movies = array();
+    private $callback;
+    private $period;
 
     public function __construct(EntityManager $manager)
     {
@@ -30,13 +32,14 @@ class RatingImporter implements Importer
         $totalBatches = ceil($totalLines/self::MAX_BATCH_SIZE);
 
         for ($batch = 0; $batch < $totalBatches; ++$batch) {
-            $batchSize = min(self::MAX_BATCH_SIZE, $totalLines - $batch * self::MAX_BATCH_SIZE);
+            $position = $batch * self::MAX_BATCH_SIZE;
+            $batchSize = min(self::MAX_BATCH_SIZE, $totalLines - $position);
 
-            $this->processBatch($file, $batchSize);
+            $this->processBatch($file, $batchSize, $position);
         }
     }
 
-    private function processBatch(MovieLensFile $file, $batchSize)
+    private function processBatch(MovieLensFile $file, $batchSize, $position)
     {
         $previousUserMovielensId = null;
         $userId = null;
@@ -72,6 +75,12 @@ class RatingImporter implements Importer
             $insertRatingQuery->bindValue(++$currentParam, $movieId);
             $insertRatingQuery->bindValue(++$currentParam, $userId);
             $insertRatingQuery->bindValue(++$currentParam, $score);
+
+            ++$position;
+
+            if ($this->callback && $position % $this->period === 0) {
+                call_user_func($this->callback, $position);
+            }
         }
 
         $this->manager->clear();
@@ -118,5 +127,11 @@ class RatingImporter implements Importer
         $this->manager->flush($user);
 
         return $user->getId();
+    }
+
+    public function setCallback(callable $callback, $period)
+    {
+        $this->callback = $callback;
+        $this->period = $period;
     }
 }
