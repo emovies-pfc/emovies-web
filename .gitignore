@@ -5,3 +5,4 @@ application/app/logs
 application/app/bootstrap.php.cache
 application/app/config/parameters.yml
 application/vendor
+.idea
