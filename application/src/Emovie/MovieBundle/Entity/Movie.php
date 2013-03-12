@@ -23,13 +23,6 @@ class Movie
      */
     protected $name;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer", nullable=true, unique=true)
-     */
-    protected $movielensId;
-
     public function getId()
     {
         return $this->id;
@@ -43,15 +36,5 @@ class Movie
     public function getName()
     {
         return $this->name;
-    }
-
-    public function setMovielensId($movielensId)
-    {
-        $this->movielensId = $movielensId;
-    }
-
-    public function getMovielensId()
-    {
-        return $this->movielensId;
     }
 }
