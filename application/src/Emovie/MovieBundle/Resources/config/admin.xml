@@ -9,7 +9,10 @@
             <tag name="sonata.admin" manager_type="orm" group="Movies" label="Movies"/>
             <argument />
             <argument>Emovie\MovieBundle\Entity\Movie</argument>
-            <argument>SonataAdminBundle:CRUD</argument>
+            <argument>EmovieMovieBundle:MovieAdmin</argument>
+            <call method="setRottenTomatoesClient">
+                <argument type="service" id="lumbendil_rotten_tomatoes.client" />
+            </call>
         </service>
     </services>
 </container>

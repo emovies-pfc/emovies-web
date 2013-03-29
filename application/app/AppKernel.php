@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Emovie\MovieBundle\EmovieMovieBundle(),
             new Emovie\UserBundle\EmovieUserBundle(),
             new Emovie\RatingBundle\EmovieRatingBundle(),
+            new Lumbendil\RottenTomatoesBundle\LumbendilRottenTomatoesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

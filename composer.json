@@ -4,6 +4,12 @@
     "autoload": {
         "psr-0": { "": "application/src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/Lumbendil/guzzle-rotten-tomatoes.git"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -22,7 +28,8 @@
         "friendsofsymfony/user-bundle": "*",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "sonata-project/admin-bundle": "*",
-        "sonata-project/doctrine-orm-admin-bundle": "*"
+        "sonata-project/doctrine-orm-admin-bundle": "*",
+        "lumbendil/rotten-tomatoes-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

@@ -69,3 +69,6 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
+
+lumbendil_rotten_tomatoes:
+    api_key: %rotten_tomatoes_api_key%
