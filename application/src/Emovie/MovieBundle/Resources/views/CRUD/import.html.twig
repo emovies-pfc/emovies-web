@@ -1,0 +1,16 @@
+{% extends base_template %}
+
+{% block title %}Import Movies{% endblock %}
+
+{% block list_table %}
+    <form action="" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" value="Search" />
+    </form>
+
+    {% if search_results is defined %}
+        {% for movie in search_results.movies %}
+            <a href="{{ admin.generateUrl('create', {'rt-id': movie.id}) }}">{{ movie.title }}</a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

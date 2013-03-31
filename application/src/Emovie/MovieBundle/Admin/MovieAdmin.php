@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
@@ -54,6 +55,16 @@ class MovieAdmin extends Admin
         }
 
         return $instance;
+    }
+
+    public function searchRottenTomatoesMovies($query)
+    {
+        return $this->rottenTomatoesClient->getCommand('SearchMovies', array('q' => $query))->execute();
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('import');
     }
 
     protected function configureFormFields(FormMapper $mapper)
