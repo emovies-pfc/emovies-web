@@ -21,6 +21,13 @@ class Movie
     protected $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer", nullable=true, unique=true)
+     */
+    protected $rottenTomatoesId;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=512)
@@ -47,13 +54,6 @@ class Movie
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $criticsConsensus;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    protected $rottenTomatoesId;
 
     /**
      * @var string
@@ -164,5 +164,10 @@ class Movie
     public function getYear()
     {
         return $this->year;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
