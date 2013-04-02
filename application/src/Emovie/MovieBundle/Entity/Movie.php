@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Movie
 {
     /**
+     * @var integer
+     *
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -19,22 +21,153 @@ class Movie
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=512, nullable=false)
+     * @var integer
+     *
+     * @ORM\Column(type="integer", nullable=true, unique=true)
+     */
+    protected $rottenTomatoesId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=512)
      */
     protected $name;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="smallint")
+     */
+    protected $year;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="smallint")
+     */
+    protected $runtime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $criticsConsensus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=1024, nullable=true)
+     */
+    protected $synopsis;
+
+    /**
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @param string $criticsConsensus
+     */
+    public function setCriticsConsensus($criticsConsensus)
+    {
+        $this->criticsConsensus = $criticsConsensus;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCriticsConsensus()
+    {
+        return $this->criticsConsensus;
+    }
+
+    /**
+     * @param string $name
+     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param int $rottenTomatoesId
+     */
+    public function setRottenTomatoesId($rottenTomatoesId)
+    {
+        $this->rottenTomatoesId = $rottenTomatoesId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRottenTomatoesId()
+    {
+        return $this->rottenTomatoesId;
+    }
+
+    /**
+     * @param string $synopsis
+     */
+    public function setSynopsis($synopsis)
+    {
+        $this->synopsis = $synopsis;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSynopsis()
+    {
+        return $this->synopsis;
+    }
+
+    /**
+     * @param int $runtime
+     */
+    public function setRuntime($runtime)
+    {
+        $this->runtime = $runtime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRuntime()
+    {
+        return $this->runtime;
+    }
+
+    /**
+     * @param int $year
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+    }
+
+    /**
+     * @return int
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

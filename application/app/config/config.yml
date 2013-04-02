@@ -64,6 +64,10 @@ fos_user:
     firewall_name: main
     user_class:    Emovie\UserBundle\Entity\User
 
+sonata_admin:
+    templates:
+        list_block: ':Admin/Block:block_admin_list.html.twig'
+
 sonata_block:
     default_contexts: [admin]
     blocks:
