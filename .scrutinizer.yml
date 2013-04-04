@@ -1,0 +1,4 @@
+tools:
+  filter:
+    excluded_paths:
+      - application/vendor
