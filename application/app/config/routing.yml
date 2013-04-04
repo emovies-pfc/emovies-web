@@ -1,3 +1,8 @@
+emovie_search:
+    resource: "@EmovieSearchBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 emovie_corporative:
     resource: "@EmovieCorporativeBundle/Controller/"
     type:     annotation
