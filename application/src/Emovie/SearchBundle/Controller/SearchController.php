@@ -16,8 +16,9 @@ class SearchController extends Controller
     {
         $request = $this->getRequest();
 
-        $query = $request->query->get('q');
+        $term = $request->query->get('q');
+        $movies = array();
 
-        return array('name' => $query);
+        return array('term' => $term, 'movies' => $movies);
     }
 }

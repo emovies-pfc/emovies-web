@@ -3,7 +3,7 @@
 {% block body %}
     <p>Welcome to E-Movie.</p>
 
-    <form action="/app_dev.php/search" method="GET">
+    <form action="{{ path('emovie_search_search_index') }}" method="GET">
         <input type="search" name="q" placeholder="Search a movie..." />
         <input type="submit" value="Search" />
     </form>
