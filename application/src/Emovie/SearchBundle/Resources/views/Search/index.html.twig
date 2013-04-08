@@ -5,7 +5,7 @@
 
     <ul>
         {% for movie in movies %}
-        <li><a href="#">{{ movie.name }}</a></li>
+        <li><a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}">{{ movie.name }}</a></li>
         {% else %}
             <li>No results found.</li>
         {% endfor %}
