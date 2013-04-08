@@ -4,6 +4,7 @@ namespace Emovie\RatingBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Emovie\MovieBundle\Entity\Movie;
 use Emovie\UserBundle\Entity\User;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -35,6 +36,7 @@ class Rating
      * @var integer
      *
      * @ORM\Column(type="integer", nullable=false)
+     * @Assert\Range(min="1", max="5")
      */
     protected $score;
 

@@ -3,6 +3,8 @@
 {% block body %}
     <h1>{{ movie.name }}</h1>
 
+    {% render url('emovie_rating_rating_widget', { 'movie': movie.id }) with {}, {'ignore_errors': true} %}
+
     <dl>
         <dt>Year</dt><dd>{{ movie.year|default('Unknown') }}</dd>
         <dt>Runtime (minutes)</dt><dd>{{ movie.runtime|default('Unknown') }}</dd>
