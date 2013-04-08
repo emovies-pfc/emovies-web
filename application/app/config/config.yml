@@ -74,5 +74,13 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles:
+            - EmovieMovieBundle
+        directories:
+            - "%kernel.root_dir%/../src"
+
 lumbendil_rotten_tomatoes:
     api_key: %rotten_tomatoes_api_key%

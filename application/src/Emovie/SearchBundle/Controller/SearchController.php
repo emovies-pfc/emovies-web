@@ -17,7 +17,7 @@ class SearchController extends Controller
         $request = $this->getRequest();
 
         $term = $request->query->get('q');
-        $movies = array();
+        $movies = $this->get('emovie_movie.finder')->searchByTerm($term);
 
         return array('term' => $term, 'movies' => $movies);
     }
