@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ movie.name }}</h1>
+
+    {% render url('emovie_rating_rating_widget', { 'movie': movie.id }) with {}, {'ignore_errors': true} %}
+
+    <dl>
+        <dt>Year</dt><dd>{{ movie.year|default('Unknown') }}</dd>
+        <dt>Runtime (minutes)</dt><dd>{{ movie.runtime|default('Unknown') }}</dd>
+    </dl>
+
+    <h2>Critics Consensus</h2>
+    <p>{{ movie.criticsConsensus|default('No critics consensus available.') }}</p>
+
+    <h2>Synopsis</h2>
+    <p>{{ movie.synopsis|default('No synopsis available') }}</p>
+
+{% endblock body %}

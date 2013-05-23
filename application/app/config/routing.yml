@@ -1,13 +1,26 @@
-emovie_rating:
-    resource: "@EmovieRatingBundle/Resources/config/routing.xml"
+emovie_search:
+    resource: "@EmovieSearchBundle/Controller/"
+    type:     annotation
     prefix:   /
 
-emovie_user:
-    resource: "@EmovieUserBundle/Resources/config/routing.xml"
+emovie_corporative:
+    resource: "@EmovieCorporativeBundle/Controller/"
+    type:     annotation
     prefix:   /
+
+emovie_rating:
+    resource: "@EmovieRatingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#emovie_user:
+#    resource: "@EmovieUserBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
 
 emovie_movie:
-    resource: "@EmovieMovieBundle/Resources/config/routing.xml"
+    resource: "@EmovieMovieBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 # Sonata Admin Bundle

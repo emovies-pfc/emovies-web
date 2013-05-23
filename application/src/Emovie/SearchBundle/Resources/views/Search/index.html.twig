@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <p>Results for <strong>{{ term }}</strong>:</p>
+
+    <ul>
+        {% for movie in movies %}
+        <li><a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}">{{ movie.name }}</a></li>
+        {% else %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+{% endblock body %}

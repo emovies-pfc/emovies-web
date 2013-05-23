@@ -1,0 +1,5 @@
+<h2>Rate the movie</h2>
+<form action="{{ path('emovie_rating_rating_submit', {movie: movie.id}) }}" method="POST">
+    {{ form_widget(form) }}
+    <input type="submit" />
+</form>
