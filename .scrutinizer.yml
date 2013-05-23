@@ -1,5 +1,8 @@
 inherit: true
 
+tools:
+  php_analyzer: false
+
 filter:
   excluded_paths:
     - application/vendor
