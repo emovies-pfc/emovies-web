@@ -1,10 +1,12 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/css/home.css" media="screen, projection" />
+{% endblock %}
 {% block body %}
-    <p>Welcome to E-Movie.</p>
-
-    <form action="{{ path('emovie_search_search_index') }}" method="GET">
-        <input type="search" name="q" placeholder="Search a movie..." />
-        <input type="submit" value="Search" />
+    <form id="home-search-form" action="{{ path('emovie_search_search_index') }}" method="GET">
+        <input id="home-search-box" type="search" name="q" placeholder="Search a movie..." />
+        <input id="home-search-button" type="submit" value="Search" />
     </form>
 {% endblock body %}

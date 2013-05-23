@@ -74,6 +74,12 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
+services:
+    gearman_client:
+        class: 'GearmanClient'
+        calls:
+            - [addServer, []]
+
 jms_di_extra:
     locations:
         all_bundles: false

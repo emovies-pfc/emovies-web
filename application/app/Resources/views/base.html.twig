@@ -3,19 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}E-Movie{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="/css/base.css" media="screen, projection" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div id="flash-messages">
-            {% for flash in app.session.flashbag.get('success') %}
-                <div class="success">{{ flash }}</div>
-            {% endfor %}
-            {% for flash in app.session.flashbag.get('error') %}
-                <div class="error">{{ flash }}</div>
-            {% endfor %}
+        <div class="container">
+            <div id="flash-messages">
+                {% for flash in app.session.flashbag.get('success') %}
+                    <div class="success">{{ flash }}</div>
+                {% endfor %}
+                {% for flash in app.session.flashbag.get('error') %}
+                    <div class="error">{{ flash }}</div>
+                {% endfor %}
+            </div>
+            {% block body %}{% endblock %}
         </div>
-        {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
