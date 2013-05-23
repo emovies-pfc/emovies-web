@@ -1,11 +1,19 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/css/list.css" media="screen, projection" />
+{% endblock %}
 {% block body %}
-    <p>Results for <strong>{{ term }}</strong>:</p>
+    <h1 class="title">Results for <strong>{{ term }}</strong></h1>
 
     <ul>
         {% for movie in movies %}
-        <li><a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}">{{ movie.name }}</a></li>
+        <li class="movie-list-item">
+            <a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}" class="movie-title">{{ movie.name }}</a>
+            <span class="movie-year">{{ movie.year }}</span>
+            <div class="crytics-consensus">{{ movie.cryticsConsensus|default('No crytics consensus available') }}</div>
+        </li>
         {% else %}
             <li>No results found.</li>
         {% endfor %}

@@ -1,0 +1,23 @@
+.movie-list-item {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.movie-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #2C3E50;
+    display: inline-block;
+    min-width: 150px;
+}
+.movie-year {
+    margin-left: 15px;
+}
+
+.crytics-consensus {
+    margin-top: 6px;
+    font-style: italic;
+}
+
+
