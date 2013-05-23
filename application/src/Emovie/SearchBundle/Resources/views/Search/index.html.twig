@@ -12,7 +12,7 @@
         <li class="movie-list-item">
             <a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}" class="movie-title">{{ movie.name }}</a>
             <span class="movie-year">{{ movie.year }}</span>
-            <div class="crytics-consensus">{{ movie.cryticsConsensus|default('No crytics consensus available') }}</div>
+            <div class="crytics-consensus">{{ movie.criticsConsensus|default('No crytics consensus available') }}</div>
         </li>
         {% else %}
             <li>No results found.</li>
