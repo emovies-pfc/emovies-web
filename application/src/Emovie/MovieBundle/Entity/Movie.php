@@ -62,6 +62,12 @@ class Movie
      */
     protected $synopsis;
 
+
+    /**
+     * @ORM\Column(type="integer", nullable=true, unique=true)
+     */
+    protected $movielensId;
+
     /**
      * @return integer
      */
@@ -169,5 +175,15 @@ class Movie
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function setMovielensId($movielensId)
+    {
+        $this->movielensId = $movielensId;
+    }
+
+    public function getMovielensId()
+    {
+        return $this->movielensId;
     }
 }

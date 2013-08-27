@@ -19,4 +19,27 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer", nullable=true, unique=true)
+     */
+    protected $movielensId;
+
+    /**
+     * @param int $movielensId
+     */
+    public function setMovielensId($movielensId)
+    {
+        $this->movielensId = $movielensId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMovielensId()
+    {
+        return $this->movielensId;
+    }
 }
