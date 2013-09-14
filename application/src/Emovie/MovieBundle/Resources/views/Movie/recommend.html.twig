@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="title">Results for <strong>{{ term }}</strong></h1>
+    <h1 class="title">Recommendations for you</h1>
 
     <ul>
         {% for movie in movies %}
             {% include 'EmovieMovieBundle:Partial:movieItem.html.twig' %}
         {% else %}
-            <li>No results found.</li>
+            <li>No recommendations found.</li>
         {% endfor %}
     </ul>
-{% endblock body %}
+{% endblock %}

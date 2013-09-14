@@ -1,0 +1,5 @@
+<li class="movie-list-item">
+    <a href="{{ path('emovie_movie_movie_show', {id: movie.id}) }}" class="movie-title">{{ movie.name }}</a>
+    {% if movie.year %}<span class="movie-year">{{ movie.year }}</span>{% endif %}
+    <div class="crytics-consensus">{{ movie.criticsConsensus|default('No crytics consensus available') }}</div>
+</li>

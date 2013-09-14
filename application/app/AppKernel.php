@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Lumbendil\RottenTomatoesBundle\LumbendilRottenTomatoesBundle(),
             new Emovie\CorporativeBundle\EmovieCorporativeBundle(),
             new Emovie\SearchBundle\EmovieSearchBundle(),
+            new Emovie\MovieLensBundle\EmovieMovieLensBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

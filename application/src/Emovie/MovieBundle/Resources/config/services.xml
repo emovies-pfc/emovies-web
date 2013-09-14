@@ -15,5 +15,15 @@
                  class="%emovie_movie.movie.repository.class%" >
             <argument>Emovie\MovieBundle\Entity\Movie</argument>
         </service>
+
+        <service id="gearman.client" class="GearmanClient">
+            <call method="addServer" />
+        </service>
+
+        <service id="recommender" class="Emovie\MovieBundle\Recommender\Recommender">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="gearman.client" />
+            <argument type="service" id="debug.stopwatch" on-invalid="null" />
+        </service>
     </services>
 </container>
